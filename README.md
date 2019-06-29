@@ -1,5 +1,7 @@
 
-## 参数详解
+
+
+#### 参数详解
 
 | 参数        | 描述  | 
 | --------   | -----:  |
@@ -8,7 +10,10 @@
 | callback_handle      | 前端callback名   |
 | timeout      | 超时，默认无，超时后进error   |
 
-
+#### 安装
+```javascript
+npm i bestime-jsonp
+```
 
 #### 请求静态 js文件
 ```javascript
