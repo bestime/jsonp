@@ -5,10 +5,10 @@
 
 | 参数        | 描述  | 
 | --------   | -----:  |
-| url      | 请求的地址   |
-| callback_name      | 后端定义的接收callback名的字段   |
-| callback_handle      | 前端callback名   |
-| timeout      | 超时，默认无，超时后进error   |
+| url      | [必填] 请求的地址   |
+| callback_name      | [可选] 后端定义的接收callback名的字段   |
+| callback_handle      | [可选] 前端callback名   |
+| timeout      |[可选] 超时，默认无，超时后进error   |
 
 #### 安装
 ```
