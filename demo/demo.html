@@ -61,8 +61,8 @@
         success: function () {
           console.log('成功，请调慢网速')
         },
-        error: function (err) {
-          console.log(err)
+        error: function () {
+          console.log('错了')
         }
       })
     }
@@ -70,8 +70,8 @@
     function errUrlDemo () {
       jsonp({
         url: './data-404.js',
-        error: function (err) {
-          console.log(err)
+        error: function () {
+          console.log('错了')
         }
       })
     }
@@ -83,8 +83,8 @@
         success: function (res) {
           console.log(res)
         },
-        error: function (err) {
-          console.log(err)
+        error: function () {
+          console.log('错了')
         }
       })
     }

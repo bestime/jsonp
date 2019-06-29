@@ -1,9 +1,7 @@
-/**
- * bestime-jsonp
- */
+// bestime-jsonp 2019-06-29
 
 ;(function (global) {
-  // 导出
+  // 导出方法
   function _export (global, name, handle) {
     if (typeof module === 'object' && typeof module.exports === 'object') {
       module.exports = handle;
@@ -11,7 +9,7 @@
       define([], function () {
         return handle;
       });
-  } else {
+    } else {
       global[name] = handle;
     }
   }
@@ -31,17 +29,13 @@
     var callback_handle = opt.callback_handle || 'jsonpHandle_' + ++id
 
     var timer = null;
-    var fnError = getType(opt.error)==='Function' ? opt.error : temp
     
     // 定义 jsop 回调
-    getType(opt.success)==='Function' && (window[callback_handle] = opt.success);
+    getType(opt.success) === 'Function' && (window[callback_handle] = opt.success);
 
     // 超时处理
     if(getType(opt.timeout)==='Number') {
-      clearTimeout(timer)
-      timer = setTimeout(function () {
-        loadError('timeout')
-      }, opt.timeout)
+      timer = setTimeout(loadError, opt.timeout)
     }
     
     // 获取数据
@@ -52,9 +46,9 @@
     document.body.appendChild(oScript)
     
     // 加载错误
-    function loadError (msg) {
+    function loadError () {
       clearData()
-      fnError(msg || 'load fail')
+      getType(opt.error) === 'Function' && opt.error()
     }
 
     // 清空信息
@@ -67,7 +61,3 @@
     }
   })
 }(this));
-
-
-
-

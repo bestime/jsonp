@@ -13,6 +13,10 @@
 #### 安装
 ```
 npm i bestime-jsonp
+const jsonp = require('bestime-jsonp')
+```
+```javascript
+<script src="https://cdn.jsdelivr.net/npm/bestime-jsonp@latest/jsonp.min.js"></script>
 ```
 
 #### 请求静态 js文件
@@ -75,8 +79,8 @@ jsonp({
   success: function () {
     console.log('成功，请调慢网速')
   },
-  error: function (err) {
-    console.log(err)
+  error: function () {
+    console.log('失败')
   }
 })
 ```
@@ -85,8 +89,8 @@ jsonp({
 ```javascript
 jsonp({
   url: './data-404.js',
-  error: function (err) {
-    console.log(err)
+  error: function () {
+    console.log('失败')
   }
 })
 ```
