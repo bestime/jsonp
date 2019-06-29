@@ -14,7 +14,10 @@
   <button onclick="jsonFileDemo()">请求json文件</button>
   <button onclick="timeoutDemo()">超时例子，请调慢网速</button>
   <button onclick="errUrlDemo()">地址无效例子</button>
+  <button onclick="errCallbackDemo()">没有配置正确的callback</button>
   <script>
+
+    
 
     function correctDemo () {
       jsonp({
@@ -67,6 +70,19 @@
     function errUrlDemo () {
       jsonp({
         url: './data-404.js',
+        error: function (err) {
+          console.log(err)
+        }
+      })
+    }
+
+
+    function errCallbackDemo () {
+      jsonp({
+        url: './data.js',
+        success: function (res) {
+          console.log(res)
+        },
         error: function (err) {
           console.log(err)
         }

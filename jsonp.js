@@ -24,25 +24,17 @@
   // 空函数
   function temp () {}
   var id = 0;
-  
 
   _export(global, 'jsonp', function (opt) {    
     if(getType(opt)!=='Object') return;
-    var callback_name = opt.callback_name || 'auto_name' 
-    var callback_handle = opt.callback_handle
-    if(!callback_handle) {
-      callback_handle = 'auto_handle' + ++id
-    }
-    // if(getType(opt.success)!=='Function') return;
+    var callback_name = opt.callback_name || 'jsonpName' 
+    var callback_handle = opt.callback_handle || 'jsonpHandle_' + ++id
 
     var timer = null;
     var fnError = getType(opt.error)==='Function' ? opt.error : temp
     
     // 定义 jsop 回调
-    window[callback_handle] = function (data) {
-      opt.success(data)
-      clearData()
-    }
+    getType(opt.success)==='Function' && (window[callback_handle] = opt.success);
 
     // 超时处理
     if(getType(opt.timeout)==='Number') {
@@ -55,15 +47,14 @@
     // 获取数据
     var oScript = document.createElement('script')
     oScript.src = opt.url + (String(opt.url).match(/\?/) ? '&' : '?') + callback_name + '=' + callback_handle;
-    oScript.onerror = function () {
-      loadError('load fail')
-    }
+    oScript.onerror = loadError
+    oScript.onload = clearData
     document.body.appendChild(oScript)
     
     // 加载错误
     function loadError (msg) {
       clearData()
-      fnError(msg)
+      fnError(msg || 'load fail')
     }
 
     // 清空信息
@@ -72,6 +63,7 @@
       clearTimeout(timer)
       oScript.parentNode && oScript.parentNode.removeChild(oScript);
       oScript = null;
+      time = null;
     }
   })
 }(this));
