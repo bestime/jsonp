@@ -1,0 +1,23 @@
+{
+  "name": "bestime-jsonp",
+  "version": "1.0.0",
+  "description": "bestime's json",
+  "main": "jsonp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bestime/jsonp.git"
+  },
+  "keywords": [
+    "jsonp",
+    "bestime"
+  ],
+  "author": "Bestime Jiang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bestime/jsonp/issues"
+  },
+  "homepage": "https://github.com/bestime/jsonp#readme"
+}

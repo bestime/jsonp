@@ -1,4 +1,6 @@
-
+/**
+ * bestime-jsonp
+ */
 
 ;(function (global) {
   // 导出
@@ -71,9 +73,6 @@
       oScript.parentNode && oScript.parentNode.removeChild(oScript);
       oScript = null;
     }
-
-    
-
   })
 }(this));
 

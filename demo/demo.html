@@ -8,16 +8,18 @@
 </head>
 <body>
   <script src="../jsonp.js"></script>
+
   <button onclick="correctDemo()">正确例子</button>
   <button onclick="fieldDemo()">动态callback字段</button>
   <button onclick="jsonFileDemo()">请求json文件</button>
   <button onclick="timeoutDemo()">超时例子，请调慢网速</button>
   <button onclick="errUrlDemo()">地址无效例子</button>
   <script>
-    
+
     function correctDemo () {
       jsonp({
         url: './data.js',
+        callback_handle: 'cb',
         success: function (res) {
           console.log(res)
         }
@@ -33,7 +35,7 @@
           console.log(res)
         },
         error: function () {
-          alert('请求失败')
+          alert('请求失败，需要服务端动态生成')
         }
       })
     }
@@ -70,6 +72,8 @@
         }
       })
     }
+
+    
     
   </script>
 </body>
