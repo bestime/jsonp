@@ -1,6 +1,6 @@
 {
   "name": "bestime-jsonp",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "bestime's json",
   "main": "jsonp.js",
   "scripts": {
