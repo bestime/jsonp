@@ -3,12 +3,13 @@
 
 #### 参数详解
 
-| 参数        | 描述  | 
-| --------   | -----:  |
-| url      | [必填] 请求的地址   |
-| callback_name      | [可选] 后端定义的接收callback名的字段   |
-| callback_handle      | [可选] 前端callback名   |
-| timeout      |[可选] 超时，默认无，超时后进error   |
+|       参数      |   类型  |  必填   | 默认 |描述 |
+| ------------    | -----:  | -----:  | -----:  | -----:  |
+| url             | String  | `是` |    无   | 请求的地址   |
+| callback_name   | String  |  否  | 自动生成 |后端定义的接收callback名的字段   |
+| callback_handle | String  |  否  | 自动生成 |前端callback名   |
+| timeout         | Number  |  否  |    无   |超时，超时后进error   |
+| cache           | Boolean |  否  | `true`  | 缓存 |
 
 #### 安装
 ```

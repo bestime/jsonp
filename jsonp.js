@@ -1,5 +1,3 @@
-// bestime-jsonp 2019-06-29
-
 ;(function (global) {
   // 导出方法
   function _export (global, name, handle) {
@@ -40,7 +38,11 @@
     
     // 获取数据
     var oScript = document.createElement('script')
-    oScript.src = opt.url + (String(opt.url).match(/\?/) ? '&' : '?') + callback_name + '=' + callback_handle;
+    var url = opt.url + (String(opt.url).match(/\?/) ? '&' : '?') + callback_name + '=' + callback_handle;
+    if(opt.cache===false) {
+      url += '&cache=' + +new Date()
+    }
+    oScript.src = url
     oScript.onerror = loadError
     oScript.onload = clearData
     document.body.appendChild(oScript)
@@ -58,6 +60,7 @@
       oScript.parentNode && oScript.parentNode.removeChild(oScript);
       oScript = null;
       time = null;
+      url = null
     }
   })
 }(this));
