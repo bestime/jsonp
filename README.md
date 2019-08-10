@@ -1,4 +1,19 @@
+#### 安装
+```javascript
+npm i bestime-jsonp
+```
 
+#### 引入到项目
+```javascript
+// 方式一
+const jsonp = require('bestime-jsonp')
+
+// 方式二
+import jsonp from 'bestime-jsonp'
+
+// 方式三
+<script src="https://cdn.jsdelivr.net/npm/bestime-jsonp@latest/jsonp.min.js"></script>
+```
 
 
 #### 参数详解
@@ -11,14 +26,7 @@
 | timeout         | Number  |  否  |    无   |超时，超时后进error   |
 | cache           | Boolean |  否  | `true`  | 缓存 |
 
-#### 安装
-```
-npm i bestime-jsonp
-const jsonp = require('bestime-jsonp')
-```
-```javascript
-<script src="https://cdn.jsdelivr.net/npm/bestime-jsonp@latest/jsonp.min.js"></script>
-```
+
 
 #### 请求静态 js文件
 ```javascript
